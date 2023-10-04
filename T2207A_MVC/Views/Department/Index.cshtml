@@ -1,0 +1,39 @@
+﻿@model List<T2207A_MVC.Entities.Department_Tbl>
+@{
+    //var xyz = ViewData["categories"];
+    //var abc = ViewBag.categories;
+}
+<h1>Department Page</h1>
+<a asp-controller="Department" asp-action="Create" class="btn btn-primary">
+    Create new Department
+</a>
+<div class="col-6">
+    <table class="table">
+        <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Location</th>
+        <th>Number of Employees</th>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Name</td>
+                    <td>@item.Code</td>
+                    <td>@item.Location</td>
+                    <td>@item.NumberOfEmployees</td>
+                    <td>
+                        <a href="@Url.ActionLink("Edit","Department", new {id=item.Id })"
+                           class="btn btn-warning">Edit</a>
+                        <a href="@Url.ActionLink("Delete","Department", new {id=item.Id })"
+                           onclick="return confirm('Bạn muốn xoá danh mục @item.Name')"
+                           class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

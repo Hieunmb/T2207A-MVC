@@ -1,0 +1,42 @@
+﻿@model T2207A_MVC.Models.DepartmentEditModel
+@{
+}
+<h1 class="text-center">Edit Department: @Model.Name</h1>
+<div class="container">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            @using (Html.BeginForm("Edit", "Department", FormMethod.Post))
+            {
+                @Html.HiddenFor(m=>m.Id)
+                <div class="mb-3">
+                    @Html.LabelFor(m=>m.Name)
+                    @Html.TextBoxFor(m => m.Name, new {@class="form-control"})
+                    @Html.ValidationMessageFor(m => m.Name,"", new {@class="text-danger"})
+                </div>
+                <div class="mb-3">
+                    @Html.LabelFor(m=>m.Code)
+                    @Html.TextBoxFor(m => m.Code, new {@class="form-control"})
+                    @Html.ValidationMessageFor(m => m.Code,"", new {@class="text-danger"})
+                </div>
+                <div class="mb-3">
+                    @Html.LabelFor(m=>m.Location)
+                    @Html.TextBoxFor(m => m.Location, new {@class="form-control"})
+                    @Html.ValidationMessageFor(m => m.Location,"", new {@class="text-danger"})
+                </div>
+                <div class="mb-3">
+                    @Html.LabelFor(m=>m.NumberOfEmployees)
+                    @Html.TextBoxFor(m => m.NumberOfEmployees, new {@class="form-control"})
+                    @Html.ValidationMessageFor(m => m.NumberOfEmployees,"", new {@class="text-danger"})
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            }
+            <div class="mb-3">
+                @Html.ActionLink("Back to List","Index")
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>

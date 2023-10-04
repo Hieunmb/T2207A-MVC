@@ -11,6 +11,8 @@ namespace T2207A_MVC.Entities
         }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Department_Tbl> Department { get; set; }
+        public DbSet<Employee_Tbl> Employees { get; set; }
         // soft delete
         //public override int SaveChanges()
         //{
